@@ -11,11 +11,11 @@ var array: Array<Int> = [4, 5,1,3,2,4]
 
 print(array)
 
-func bubbleSort(with array: inout [Int]){
+func bubbleSort(with array: inout [Int]) {
     
-    for i in 0 ..< array.count   {
+    for i in 0 ..< array.count {
         
-        for j in 0 ..< (array.count - 1) - i  {
+        for j in 0 ..< (array.count - 1) - i {
             
             if array[j] > array[j+1]{
                 
@@ -42,7 +42,7 @@ class Phone {
     private let model: String?
     private let price: Int?
     
-    init(model: String, price: Int){
+    init(model: String, price: Int) {
         self.model = model
         self.price = price
     }
@@ -56,13 +56,13 @@ class Phone {
         return price!
     }
     
-    func getModel() -> String{
+    func getModel() -> String {
         return model!
     }
     
 }
 
-class SmartPhone: Phone{
+class SmartPhone: Phone {
     
     let cameraMPX: Double
     
@@ -71,11 +71,11 @@ class SmartPhone: Phone{
         super.init(model: model, price: price)
     }
     
-    func makePhoto(){
+    func makePhoto() {
         print("making photo...")
     }
     
-    override func call(){
+    override func call() {
         print("making call and record this...")
     }
     
@@ -102,7 +102,7 @@ class Stack{
         array = []
     }
     
-    func isEmpty() -> Bool{
+    func isEmpty() -> Bool {
         return array.isEmpty
     }
     
@@ -111,12 +111,14 @@ class Stack{
     }
     
     func pop() -> Int {
-        let temp = array.first!
+        guard let temp = array.first else {
+            return -1
+        }
         array.remove(at: 0)
         return temp
     }
     
-    func push(number: Int){
+    func push(number: Int) {
         array.insert(number, at: 0)
     }
     
